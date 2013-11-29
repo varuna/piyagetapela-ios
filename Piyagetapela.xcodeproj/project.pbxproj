@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9745CCAB1847F43A00A1ABA9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9745CCAA1847F43A00A1ABA9 /* AVFoundation.framework */; };
+		9745CCAE1847F46F00A1ABA9 /* DeshanaListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9745CCAD1847F46F00A1ABA9 /* DeshanaListViewController.m */; };
 		DE0331681845E18000B2379E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE0331671845E18000B2379E /* Foundation.framework */; };
 		DE03316A1845E18000B2379E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE0331691845E18000B2379E /* CoreGraphics.framework */; };
 		DE03316C1845E18000B2379E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE03316B1845E18000B2379E /* UIKit.framework */; };
@@ -21,6 +23,26 @@
 		DE0331891845E18000B2379E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE03316B1845E18000B2379E /* UIKit.framework */; };
 		DE0331911845E18000B2379E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE03318F1845E18000B2379E /* InfoPlist.strings */; };
 		DE0331931845E18000B2379E /* PiyagetapelaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0331921845E18000B2379E /* PiyagetapelaTests.m */; };
+		DE0331A01846092600B2379E /* banner-sermons-2.png in Resources */ = {isa = PBXBuildFile; fileRef = DE03319F1846092600B2379E /* banner-sermons-2.png */; };
+		DE0331A4184610F000B2379E /* HomeMenuItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0331A3184610F000B2379E /* HomeMenuItemCell.m */; };
+		DE0331A8184611D200B2379E /* dharmachakra.png in Resources */ = {isa = PBXBuildFile; fileRef = DE0331A5184611D200B2379E /* dharmachakra.png */; };
+		DE0331A9184611D200B2379E /* neluma.png in Resources */ = {isa = PBXBuildFile; fileRef = DE0331A6184611D200B2379E /* neluma.png */; };
+		DE0331AA184611D200B2379E /* sermons.png in Resources */ = {isa = PBXBuildFile; fileRef = DE0331A7184611D200B2379E /* sermons.png */; };
+		DED983FA18470CCC00FE320E /* DharmaDeshanaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DED983F918470CCC00FE320E /* DharmaDeshanaViewController.m */; };
+		DED983FD184716CF00FE320E /* SadahamLipiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DED983FC184716CF00FE320E /* SadahamLipiViewController.m */; };
+		DED98400184716E100FE320E /* ProgramsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DED983FF184716E100FE320E /* ProgramsViewController.m */; };
+		DED98422184745A000FE320E /* bulathsinghala-sumangala-thero.png in Resources */ = {isa = PBXBuildFile; fileRef = DED98417184745A000FE320E /* bulathsinghala-sumangala-thero.png */; };
+		DED98423184745A000FE320E /* dasawatte-sumanaseela-thero.png in Resources */ = {isa = PBXBuildFile; fileRef = DED98418184745A000FE320E /* dasawatte-sumanaseela-thero.png */; };
+		DED98424184745A000FE320E /* kadawedduwa-sri-jinawansha-thero.png in Resources */ = {isa = PBXBuildFile; fileRef = DED98419184745A000FE320E /* kadawedduwa-sri-jinawansha-thero.png */; };
+		DED98425184745A000FE320E /* kahagolle-somawansha-thero.png in Resources */ = {isa = PBXBuildFile; fileRef = DED9841A184745A000FE320E /* kahagolle-somawansha-thero.png */; };
+		DED98426184745A000FE320E /* kehellpannala-sumana-thero.png in Resources */ = {isa = PBXBuildFile; fileRef = DED9841B184745A000FE320E /* kehellpannala-sumana-thero.png */; };
+		DED98427184745A000FE320E /* kelaniye-vipulagana-thero.png in Resources */ = {isa = PBXBuildFile; fileRef = DED9841C184745A000FE320E /* kelaniye-vipulagana-thero.png */; };
+		DED98428184745A000FE320E /* laggala-kalyanawansa-thero.png in Resources */ = {isa = PBXBuildFile; fileRef = DED9841D184745A000FE320E /* laggala-kalyanawansa-thero.png */; };
+		DED98429184745A000FE320E /* matara-sri-gnanarama-thero.png in Resources */ = {isa = PBXBuildFile; fileRef = DED9841E184745A000FE320E /* matara-sri-gnanarama-thero.png */; };
+		DED9842A184745A000FE320E /* meethalawe-wineetha-thero.png in Resources */ = {isa = PBXBuildFile; fileRef = DED9841F184745A000FE320E /* meethalawe-wineetha-thero.png */; };
+		DED9842B184745A000FE320E /* na-uyane-ariyadhamma-thero.png in Resources */ = {isa = PBXBuildFile; fileRef = DED98420184745A000FE320E /* na-uyane-ariyadhamma-thero.png */; };
+		DED9842C184745A000FE320E /* rahathungoda-bodhirathana-thero.png in Resources */ = {isa = PBXBuildFile; fileRef = DED98421184745A000FE320E /* rahathungoda-bodhirathana-thero.png */; };
+		DED984301847467400FE320E /* TheroItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DED9842F1847467400FE320E /* TheroItemCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +56,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9745CCAA1847F43A00A1ABA9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		9745CCAC1847F46F00A1ABA9 /* DeshanaListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeshanaListViewController.h; sourceTree = "<group>"; };
+		9745CCAD1847F46F00A1ABA9 /* DeshanaListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeshanaListViewController.m; sourceTree = "<group>"; };
 		DE0331641845E18000B2379E /* Piyagetapela.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Piyagetapela.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE0331671845E18000B2379E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DE0331691845E18000B2379E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,6 +78,31 @@
 		DE03318E1845E18000B2379E /* PiyagetapelaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PiyagetapelaTests-Info.plist"; sourceTree = "<group>"; };
 		DE0331901845E18000B2379E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DE0331921845E18000B2379E /* PiyagetapelaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PiyagetapelaTests.m; sourceTree = "<group>"; };
+		DE03319F1846092600B2379E /* banner-sermons-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banner-sermons-2.png"; sourceTree = "<group>"; };
+		DE0331A2184610F000B2379E /* HomeMenuItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeMenuItemCell.h; sourceTree = "<group>"; };
+		DE0331A3184610F000B2379E /* HomeMenuItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeMenuItemCell.m; sourceTree = "<group>"; };
+		DE0331A5184611D200B2379E /* dharmachakra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dharmachakra.png; sourceTree = "<group>"; };
+		DE0331A6184611D200B2379E /* neluma.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = neluma.png; sourceTree = "<group>"; };
+		DE0331A7184611D200B2379E /* sermons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sermons.png; sourceTree = "<group>"; };
+		DED983F818470CCC00FE320E /* DharmaDeshanaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DharmaDeshanaViewController.h; sourceTree = "<group>"; };
+		DED983F918470CCC00FE320E /* DharmaDeshanaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DharmaDeshanaViewController.m; sourceTree = "<group>"; };
+		DED983FB184716CF00FE320E /* SadahamLipiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SadahamLipiViewController.h; sourceTree = "<group>"; };
+		DED983FC184716CF00FE320E /* SadahamLipiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SadahamLipiViewController.m; sourceTree = "<group>"; };
+		DED983FE184716E100FE320E /* ProgramsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramsViewController.h; sourceTree = "<group>"; };
+		DED983FF184716E100FE320E /* ProgramsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramsViewController.m; sourceTree = "<group>"; };
+		DED98417184745A000FE320E /* bulathsinghala-sumangala-thero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bulathsinghala-sumangala-thero.png"; sourceTree = "<group>"; };
+		DED98418184745A000FE320E /* dasawatte-sumanaseela-thero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dasawatte-sumanaseela-thero.png"; sourceTree = "<group>"; };
+		DED98419184745A000FE320E /* kadawedduwa-sri-jinawansha-thero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kadawedduwa-sri-jinawansha-thero.png"; sourceTree = "<group>"; };
+		DED9841A184745A000FE320E /* kahagolle-somawansha-thero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kahagolle-somawansha-thero.png"; sourceTree = "<group>"; };
+		DED9841B184745A000FE320E /* kehellpannala-sumana-thero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kehellpannala-sumana-thero.png"; sourceTree = "<group>"; };
+		DED9841C184745A000FE320E /* kelaniye-vipulagana-thero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kelaniye-vipulagana-thero.png"; sourceTree = "<group>"; };
+		DED9841D184745A000FE320E /* laggala-kalyanawansa-thero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "laggala-kalyanawansa-thero.png"; sourceTree = "<group>"; };
+		DED9841E184745A000FE320E /* matara-sri-gnanarama-thero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "matara-sri-gnanarama-thero.png"; sourceTree = "<group>"; };
+		DED9841F184745A000FE320E /* meethalawe-wineetha-thero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "meethalawe-wineetha-thero.png"; sourceTree = "<group>"; };
+		DED98420184745A000FE320E /* na-uyane-ariyadhamma-thero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "na-uyane-ariyadhamma-thero.png"; sourceTree = "<group>"; };
+		DED98421184745A000FE320E /* rahathungoda-bodhirathana-thero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rahathungoda-bodhirathana-thero.png"; sourceTree = "<group>"; };
+		DED9842E1847467400FE320E /* TheroItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheroItemCell.h; sourceTree = "<group>"; };
+		DED9842F1847467400FE320E /* TheroItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheroItemCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9745CCAB1847F43A00A1ABA9 /* AVFoundation.framework in Frameworks */,
 				DE03316A1845E18000B2379E /* CoreGraphics.framework in Frameworks */,
 				DE03316C1845E18000B2379E /* UIKit.framework in Frameworks */,
 				DE0331681845E18000B2379E /* Foundation.framework in Frameworks */,
@@ -101,6 +152,7 @@
 		DE0331661845E18000B2379E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9745CCAA1847F43A00A1ABA9 /* AVFoundation.framework */,
 				DE0331671845E18000B2379E /* Foundation.framework */,
 				DE0331691845E18000B2379E /* CoreGraphics.framework */,
 				DE03316B1845E18000B2379E /* UIKit.framework */,
@@ -112,6 +164,7 @@
 		DE03316D1845E18000B2379E /* Piyagetapela */ = {
 			isa = PBXGroup;
 			children = (
+				DE0331A11846092B00B2379E /* images */,
 				DE0331761845E18000B2379E /* AppDelegate.h */,
 				DE0331771845E18000B2379E /* AppDelegate.m */,
 				DE0331791845E18000B2379E /* Main.storyboard */,
@@ -119,6 +172,18 @@
 				DE03317D1845E18000B2379E /* ViewController.m */,
 				DE03317F1845E18000B2379E /* Images.xcassets */,
 				DE03316E1845E18000B2379E /* Supporting Files */,
+				DE0331A2184610F000B2379E /* HomeMenuItemCell.h */,
+				DE0331A3184610F000B2379E /* HomeMenuItemCell.m */,
+				DED983F818470CCC00FE320E /* DharmaDeshanaViewController.h */,
+				DED983F918470CCC00FE320E /* DharmaDeshanaViewController.m */,
+				DED983FB184716CF00FE320E /* SadahamLipiViewController.h */,
+				DED983FC184716CF00FE320E /* SadahamLipiViewController.m */,
+				DED983FE184716E100FE320E /* ProgramsViewController.h */,
+				DED983FF184716E100FE320E /* ProgramsViewController.m */,
+				DED9842E1847467400FE320E /* TheroItemCell.h */,
+				DED9842F1847467400FE320E /* TheroItemCell.m */,
+				9745CCAC1847F46F00A1ABA9 /* DeshanaListViewController.h */,
+				9745CCAD1847F46F00A1ABA9 /* DeshanaListViewController.m */,
 			);
 			path = Piyagetapela;
 			sourceTree = "<group>";
@@ -150,6 +215,36 @@
 				DE03318F1845E18000B2379E /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DE0331A11846092B00B2379E /* images */ = {
+			isa = PBXGroup;
+			children = (
+				DED9842D184745A600FE320E /* thero-pics */,
+				DE0331A5184611D200B2379E /* dharmachakra.png */,
+				DE0331A6184611D200B2379E /* neluma.png */,
+				DE0331A7184611D200B2379E /* sermons.png */,
+				DE03319F1846092600B2379E /* banner-sermons-2.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		DED9842D184745A600FE320E /* thero-pics */ = {
+			isa = PBXGroup;
+			children = (
+				DED98417184745A000FE320E /* bulathsinghala-sumangala-thero.png */,
+				DED98418184745A000FE320E /* dasawatte-sumanaseela-thero.png */,
+				DED98419184745A000FE320E /* kadawedduwa-sri-jinawansha-thero.png */,
+				DED9841A184745A000FE320E /* kahagolle-somawansha-thero.png */,
+				DED9841B184745A000FE320E /* kehellpannala-sumana-thero.png */,
+				DED9841C184745A000FE320E /* kelaniye-vipulagana-thero.png */,
+				DED9841D184745A000FE320E /* laggala-kalyanawansa-thero.png */,
+				DED9841E184745A000FE320E /* matara-sri-gnanarama-thero.png */,
+				DED9841F184745A000FE320E /* meethalawe-wineetha-thero.png */,
+				DED98420184745A000FE320E /* na-uyane-ariyadhamma-thero.png */,
+				DED98421184745A000FE320E /* rahathungoda-bodhirathana-thero.png */,
+			);
+			name = "thero-pics";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,9 +323,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DED98427184745A000FE320E /* kelaniye-vipulagana-thero.png in Resources */,
+				DED9842C184745A000FE320E /* rahathungoda-bodhirathana-thero.png in Resources */,
+				DED98423184745A000FE320E /* dasawatte-sumanaseela-thero.png in Resources */,
+				DED98425184745A000FE320E /* kahagolle-somawansha-thero.png in Resources */,
+				DED9842B184745A000FE320E /* na-uyane-ariyadhamma-thero.png in Resources */,
+				DE0331A01846092600B2379E /* banner-sermons-2.png in Resources */,
+				DE0331A9184611D200B2379E /* neluma.png in Resources */,
 				DE0331801845E18000B2379E /* Images.xcassets in Resources */,
+				DE0331AA184611D200B2379E /* sermons.png in Resources */,
+				DED98429184745A000FE320E /* matara-sri-gnanarama-thero.png in Resources */,
+				DED98428184745A000FE320E /* laggala-kalyanawansa-thero.png in Resources */,
 				DE0331721845E18000B2379E /* InfoPlist.strings in Resources */,
+				DED9842A184745A000FE320E /* meethalawe-wineetha-thero.png in Resources */,
+				DED98424184745A000FE320E /* kadawedduwa-sri-jinawansha-thero.png in Resources */,
 				DE03317B1845E18000B2379E /* Main.storyboard in Resources */,
+				DED98422184745A000FE320E /* bulathsinghala-sumangala-thero.png in Resources */,
+				DED98426184745A000FE320E /* kehellpannala-sumana-thero.png in Resources */,
+				DE0331A8184611D200B2379E /* dharmachakra.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,9 +359,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DED983FD184716CF00FE320E /* SadahamLipiViewController.m in Sources */,
 				DE03317E1845E18000B2379E /* ViewController.m in Sources */,
 				DE0331781845E18000B2379E /* AppDelegate.m in Sources */,
+				DED984301847467400FE320E /* TheroItemCell.m in Sources */,
+				DE0331A4184610F000B2379E /* HomeMenuItemCell.m in Sources */,
 				DE0331741845E18000B2379E /* main.m in Sources */,
+				9745CCAE1847F46F00A1ABA9 /* DeshanaListViewController.m in Sources */,
+				DED983FA18470CCC00FE320E /* DharmaDeshanaViewController.m in Sources */,
+				DED98400184716E100FE320E /* ProgramsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +497,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Piyagetapela/Piyagetapela-Prefix.pch";
 				INFOPLIST_FILE = "Piyagetapela/Piyagetapela-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -394,6 +511,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Piyagetapela/Piyagetapela-Prefix.pch";
 				INFOPLIST_FILE = "Piyagetapela/Piyagetapela-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -460,6 +578,7 @@
 				DE0331981845E18000B2379E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DE0331991845E18000B2379E /* Build configuration list for PBXNativeTarget "PiyagetapelaTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +587,7 @@
 				DE03319B1845E18000B2379E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

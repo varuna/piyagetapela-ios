@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HomeMenuItemCell.h"
+#import "DharmaDeshanaViewController.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UICollectionViewDelegate,UICollectionViewDataSource>
 
 @end
