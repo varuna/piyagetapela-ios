@@ -11,4 +11,5 @@
 #import "DeshanaListViewController.h"
 @interface DharmaDeshanaViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>
 
+@property (retain,nonatomic) NSDictionary * data;
 @end

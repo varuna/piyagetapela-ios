@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9745CCAB1847F43A00A1ABA9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9745CCAA1847F43A00A1ABA9 /* AVFoundation.framework */; };
 		9745CCAE1847F46F00A1ABA9 /* DeshanaListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9745CCAD1847F46F00A1ABA9 /* DeshanaListViewController.m */; };
+		9745CCB2184A79B300A1ABA9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9745CCB1184A79B300A1ABA9 /* AudioToolbox.framework */; };
+		9745CCB4184A8B0B00A1ABA9 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9745CCB3184A8B0B00A1ABA9 /* MediaPlayer.framework */; };
 		DE0331681845E18000B2379E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE0331671845E18000B2379E /* Foundation.framework */; };
 		DE03316A1845E18000B2379E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE0331691845E18000B2379E /* CoreGraphics.framework */; };
 		DE03316C1845E18000B2379E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE03316B1845E18000B2379E /* UIKit.framework */; };
@@ -59,6 +61,8 @@
 		9745CCAA1847F43A00A1ABA9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		9745CCAC1847F46F00A1ABA9 /* DeshanaListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeshanaListViewController.h; sourceTree = "<group>"; };
 		9745CCAD1847F46F00A1ABA9 /* DeshanaListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeshanaListViewController.m; sourceTree = "<group>"; };
+		9745CCB1184A79B300A1ABA9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		9745CCB3184A8B0B00A1ABA9 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		DE0331641845E18000B2379E /* Piyagetapela.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Piyagetapela.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE0331671845E18000B2379E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DE0331691845E18000B2379E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -110,6 +114,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9745CCB4184A8B0B00A1ABA9 /* MediaPlayer.framework in Frameworks */,
+				9745CCB2184A79B300A1ABA9 /* AudioToolbox.framework in Frameworks */,
 				9745CCAB1847F43A00A1ABA9 /* AVFoundation.framework in Frameworks */,
 				DE03316A1845E18000B2379E /* CoreGraphics.framework in Frameworks */,
 				DE03316C1845E18000B2379E /* UIKit.framework in Frameworks */,
@@ -152,6 +158,8 @@
 		DE0331661845E18000B2379E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9745CCB3184A8B0B00A1ABA9 /* MediaPlayer.framework */,
+				9745CCB1184A79B300A1ABA9 /* AudioToolbox.framework */,
 				9745CCAA1847F43A00A1ABA9 /* AVFoundation.framework */,
 				DE0331671845E18000B2379E /* Foundation.framework */,
 				DE0331691845E18000B2379E /* CoreGraphics.framework */,
