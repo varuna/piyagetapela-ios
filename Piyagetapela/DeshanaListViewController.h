@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVAudioPlayer.h>
-#import <AVFoundation/AVPlayer.h>
-#import <MediaPlayer/MPMusicPlayerController.h>
-#import <MediaPlayer/MPMoviePlayerController.h>
+#import "Utils.h"
+#import "AudioItemCell.h"
 
 @interface DeshanaListViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,AVAudioPlayerDelegate,NSURLConnectionDelegate>
 
@@ -26,7 +25,10 @@
 @property (weak, nonatomic) IBOutlet UIButton * previouse;
 @property (weak, nonatomic) IBOutlet UIButton * next;
 @property (weak, nonatomic) IBOutlet UIButton * playPause;
+@property (weak, nonatomic) IBOutlet UISwitch *saveToDisk;
 @property (weak, nonatomic) IBOutlet UIProgressView * progress;
+@property (weak, nonatomic) IBOutlet UIView *playerBackground;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewBottomSpacingContraint;
 - (IBAction)onPreviousSelected:(id)sender;
 - (IBAction)onPlayPauseSelected:(id)sender;
 - (IBAction)onNextSelected:(id)sender;

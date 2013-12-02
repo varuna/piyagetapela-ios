@@ -236,14 +236,46 @@
                                 </constraints>
                                 <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="audioitem" id="s2f-8k-S7e">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="audioitem" id="s2f-8k-S7e" customClass="AudioItemCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s2f-8k-S7e" id="e5P-aI-Qdw">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="40J-zZ-UKl">
+                                                    <rect key="frame" x="238" y="8" width="79" height="27"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="makeAvailableOffline:" destination="s2f-8k-S7e" eventType="valueChanged" id="CvS-c2-CWn"/>
+                                                    </connections>
+                                                </switch>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="පසුව අහන්න​" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="34" translatesAutoresizingMaskIntoConstraints="NO" id="4XC-Tb-ynP">
+                                                    <rect key="frame" x="199" y="8" width="34" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ClP-14-7cg">
+                                                    <rect key="frame" x="0.0" y="35" width="320" height="9"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </progressView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="ClP-14-7cg" secondAttribute="trailing" id="7MR-oT-Lev"/>
+                                                <constraint firstAttribute="bottom" secondItem="ClP-14-7cg" secondAttribute="bottom" constant="-1" id="Lss-OH-lZo"/>
+                                                <constraint firstItem="40J-zZ-UKl" firstAttribute="centerY" secondItem="e5P-aI-Qdw" secondAttribute="centerY" id="a1n-ZV-XFK"/>
+                                                <constraint firstItem="ClP-14-7cg" firstAttribute="leading" secondItem="e5P-aI-Qdw" secondAttribute="leading" id="eoi-jX-1lY"/>
+                                                <constraint firstAttribute="trailing" secondItem="40J-zZ-UKl" secondAttribute="trailing" constant="5" id="fJb-aj-EEA"/>
+                                                <constraint firstItem="40J-zZ-UKl" firstAttribute="leading" secondItem="4XC-Tb-ynP" secondAttribute="trailing" constant="5" id="jeP-6L-R7D"/>
+                                                <constraint firstAttribute="centerY" secondItem="4XC-Tb-ynP" secondAttribute="centerY" constant="-0.5" id="kHN-J8-WYI"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="fileDownloadProgress" destination="ClP-14-7cg" id="GdE-Y0-GaM"/>
+                                            <outlet property="makeAvailableOfflineSwitch" destination="40J-zZ-UKl" id="UcB-Gx-CMv"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -340,7 +372,7 @@
                                     <action selector="onSaveToDiskStatusChanged:" destination="8aC-6b-T9W" eventType="valueChanged" id="IsI-KA-KQz"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="බාගත කරගන්න​" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5y-kq-tbK">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="සියල්ල පසුව අහන්න​" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5y-kq-tbK">
                                 <rect key="frame" x="118" y="149" width="105" height="15"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -375,8 +407,11 @@
                         <outlet property="next" destination="KaT-8x-90q" id="Nep-EO-MeW"/>
                         <outlet property="nowPlaying" destination="Ogq-nZ-78W" id="hFE-LQ-CMe"/>
                         <outlet property="playPause" destination="mrd-t9-Ykw" id="37x-Ij-QhM"/>
+                        <outlet property="playerBackground" destination="pXa-BC-mmQ" id="Hbv-xD-6tD"/>
                         <outlet property="previouse" destination="eTg-f8-mTK" id="gvu-MO-kmI"/>
                         <outlet property="progress" destination="oky-MA-W65" id="Pcs-qI-4Ax"/>
+                        <outlet property="saveToDisk" destination="RHj-eA-wiF" id="Wje-qL-L3x"/>
+                        <outlet property="tableViewBottomSpacingContraint" destination="q9T-oY-yve" id="cC3-6Z-kMf"/>
                         <outlet property="theroImage" destination="lfK-zS-uzZ" id="4EG-A2-Jq3"/>
                         <outlet property="theroName" destination="guC-Cu-d1t" id="W8d-dQ-jhL"/>
                     </connections>

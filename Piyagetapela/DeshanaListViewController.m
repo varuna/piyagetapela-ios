@@ -7,7 +7,6 @@
 //
 
 #import "DeshanaListViewController.h"
-NSString * kTemplateURL = @"http://piyagetapela.com";
 
 @interface DeshanaListViewController ()
 
@@ -16,7 +15,7 @@ NSString * kTemplateURL = @"http://piyagetapela.com";
 @implementation DeshanaListViewController
 
 @synthesize audioItemList,player,expectedBytes,trackTitle;
-@synthesize nowPlaying,playPause,next,previouse,progress;
+@synthesize nowPlaying,playPause,next,previouse,progress,saveToDisk,playerBackground,tableViewBottomSpacingContraint;
 
 NSURLConnection * connection;
 NSTimer * timer;
@@ -31,8 +30,9 @@ bool isDownloadingComplete,shouldSaveToDisk;
     [progress setProgress:0.0f];
     currentIndex = 0;
     isDownloadingComplete = NO;
-    shouldSaveToDisk = NO;
+    shouldSaveToDisk = [saveToDisk isOn];
     nowPlaying.text = @"";
+    [self togglePlayerControls:NO];
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -40,24 +40,46 @@ bool isDownloadingComplete,shouldSaveToDisk;
 }
 
 -(UITableViewCell* ) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"audioitem" forIndexPath:indexPath];
+    AudioItemCell * cell = [tableView dequeueReusableCellWithIdentifier:@"audioitem" forIndexPath:indexPath];
     NSDictionary * currentRowAudio = [audioItemList objectAtIndex:indexPath.row];
     cell.textLabel.text = [currentRowAudio objectForKey:@"title"];
+    [cell prepare];
     return cell;
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self togglePlayerControls:YES];
     [self playIndex:indexPath.row];
 }
 
 -(void) playIndex:(NSUInteger) index{
     NSDictionary * selectedRowAudio = [audioItemList objectAtIndex:index];
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kTemplateURL,(NSString*)[selectedRowAudio objectForKey:@"mp3"]]];
-    trackTitle = [[audioItemList objectAtIndex:index] objectForKey:@"title"];
-    nowPlaying.text = [NSString stringWithFormat:@"Now downloading : %@",trackTitle];
-    currentIndex = index;
     
-    [self downloadWithNsurlconnection:url];
+    trackTitle = [[audioItemList objectAtIndex:index] objectForKey:@"title"];
+    NSData * fileData = [self loadFileData:trackTitle];
+    if (fileData != nil)
+    {
+        [self playData:fileData isCachedData:YES];
+    }else{
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",[Utils kTemplateURL],(NSString*)[selectedRowAudio objectForKey:@"mp3"]]];
+        nowPlaying.text = [NSString stringWithFormat:@"Now downloading : %@",trackTitle];
+        currentIndex = index;
+        [self downloadWithNsurlconnection:url];
+    }
+}
+
+-(void) togglePlayerControls:(BOOL)makevisible{
+    [playerBackground setHidden:!makevisible];
+    [next setHidden:!makevisible];
+    [playPause setHidden:!makevisible];
+    [previouse setHidden:!makevisible];
+    [progress setHidden:!makevisible];
+    if (!makevisible)
+    {
+        tableViewBottomSpacingContraint.constant = 0;
+    }else{
+        tableViewBottomSpacingContraint.constant = 100;
+    }
 }
 
 -(void)downloadWithNsurlconnection:(NSURL *)url
@@ -96,29 +118,29 @@ bool isDownloadingComplete,shouldSaveToDisk;
 }
 
 - (void) connectionDidFinishLoading:(NSURLConnection *)connection {
-    [progress setProgressTintColor:[UIColor blueColor]];
-    [progress setProgress:0.0f];
-    
-    
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    
-    NSError *err;
+        [self playData:receivedData isCachedData:NO];
+}
+-(void) playData:(NSData*)trackData isCachedData:(BOOL)isCachedData{
     timer = [NSTimer scheduledTimerWithTimeInterval:0.5
                                              target:self
                                            selector:@selector(updatePlayProgress:)
                                            userInfo:nil
                                             repeats:YES];
-    
-    player = [[AVAudioPlayer alloc]initWithData:receivedData error:&err];
+
+    [progress setProgressTintColor:[UIColor blueColor]];
+    [progress setProgress:0.0f];
+    NSError *err;
+    player = [[AVAudioPlayer alloc]initWithData:trackData error:&err];
     [player setDelegate:self];
     nowPlaying.text = [NSString stringWithFormat:@"Now playing : %@",trackTitle];
     [player prepareToPlay];
     [player play];
     [playPause setBackgroundImage:[UIImage imageNamed:@"pauseButton"] forState:UIControlStateNormal];
     
-    if (shouldSaveToDisk)
+    if (shouldSaveToDisk && !isCachedData)
     {
-        [self saveFileToDisk:receivedData filename:trackTitle];
+        [self saveFileToDisk:trackData filename:trackTitle];
     }
 }
 
@@ -173,22 +195,28 @@ bool isDownloadingComplete,shouldSaveToDisk;
 }
 
 - (IBAction)onSaveToDiskStatusChanged:(id)sender {
-    shouldSaveToDisk = YES;
+    
+    shouldSaveToDisk = [saveToDisk isOn];
     if (isDownloadingComplete)
     {
         [self saveFileToDisk:receivedData filename:trackTitle];
     }
 }
 
+-(NSData *) loadFileData:(NSString*)name{
+    bool isFileExist = [Utils isDownloadedAudioFileExist:name];
+    if (isFileExist)
+    {
+        return [[NSFileManager defaultManager] contentsAtPath:[Utils getFileAbsolutePath:name inDir:@"sermons" ofType:@"mp3" ]];
+    }
+    return nil;
+}
+
 -(void) saveFileToDisk:(NSData *)data filename:(NSString *)name
 {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString * file = [NSString stringWithFormat:@"sermons/%@.mp3",name];
-    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:file];
-    NSLog(@"%@",filePath);
-    [receivedData writeToFile:filePath atomically:YES];
-}
+    [Utils mkdir:@"sermons"];
+    [receivedData writeToFile:[Utils getFileAbsolutePath:name inDir:@"sermons" ofType:@"mp3"] atomically:YES];
+}   
 
 -(void) viewWillDisappear:(BOOL)animated
 {
