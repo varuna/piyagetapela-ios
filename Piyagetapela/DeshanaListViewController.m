@@ -15,13 +15,24 @@ NSString * kTemplateURL = @"http://piyagetapela.com";
 
 @implementation DeshanaListViewController
 
-@synthesize audioItemList,player,expectedBytes,currentPercentage,trackTitle;
+@synthesize audioItemList,player,expectedBytes,trackTitle;
+@synthesize nowPlaying,playPause,next,previouse,progress;
+
+NSURLConnection * connection;
+NSTimer * timer;
 NSMutableData * receivedData;
+NSUInteger currentIndex;
+bool isDownloadingComplete,shouldSaveToDisk;
 
 -(void) viewDidLoad{
     self.theroName.text = self.name;
     self.theroImage.image = self.image;
     self.title = self.name;
+    [progress setProgress:0.0f];
+    currentIndex = 0;
+    isDownloadingComplete = NO;
+    shouldSaveToDisk = NO;
+    nowPlaying.text = @"";
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -36,19 +47,31 @@ NSMutableData * receivedData;
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSDictionary * selectedRowAudio = [audioItemList objectAtIndex:indexPath.row];
+    [self playIndex:indexPath.row];
+}
+
+-(void) playIndex:(NSUInteger) index{
+    NSDictionary * selectedRowAudio = [audioItemList objectAtIndex:index];
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kTemplateURL,(NSString*)[selectedRowAudio objectForKey:@"mp3"]]];
-    trackTitle = [[audioItemList objectAtIndex:indexPath.row] objectForKey:@"title"];
-    currentPercentage = 0;
+    trackTitle = [[audioItemList objectAtIndex:index] objectForKey:@"title"];
+    nowPlaying.text = [NSString stringWithFormat:@"Now downloading : %@",trackTitle];
+    currentIndex = index;
+    
     [self downloadWithNsurlconnection:url];
 }
 
 -(void)downloadWithNsurlconnection:(NSURL *)url
 {
+    if (connection != nil){
+        [connection cancel];
+        connection = nil;
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    }
     
     NSURLRequest *theRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
     receivedData = [[NSMutableData alloc] initWithLength:0];
-    NSURLConnection * connection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self     startImmediately:YES];
+    connection =[[NSURLConnection alloc] initWithRequest:theRequest delegate:self startImmediately:YES];
+    [progress setProgressTintColor:[UIColor grayColor]];
 }
 
 
@@ -61,19 +84,11 @@ NSMutableData * receivedData;
 - (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     [receivedData appendData:data];
     float progressive = (float)[receivedData length] / (float)expectedBytes;
-    NSLog(@"%f",progressive);
-    int percentage = (round(progressive * 10.0)/10.0) * 100;
-    NSLog(@"%d",percentage);
-    if (currentPercentage < percentage)
-    {
-        currentPercentage = percentage;
-    }
-    
+    [progress setProgress:progressive];
 }
 
 - (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    
 }
 
 - (NSCachedURLResponse *) connection:(NSURLConnection *)connection willCacheResponse:    (NSCachedURLResponse *)cachedResponse {
@@ -81,16 +96,112 @@ NSMutableData * receivedData;
 }
 
 - (void) connectionDidFinishLoading:(NSURLConnection *)connection {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    [progress setProgressTintColor:[UIColor blueColor]];
+    [progress setProgress:0.0f];
     
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *pdfPath = [documentsDirectory stringByAppendingPathComponent:[@"sermon" stringByAppendingString:@".mp3"]];
-    NSLog(@"Succeeded! Received %d bytes of data",[receivedData length]);
+    
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    [receivedData writeToFile:pdfPath atomically:YES];
+    
     NSError *err;
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.5
+                                             target:self
+                                           selector:@selector(updatePlayProgress:)
+                                           userInfo:nil
+                                            repeats:YES];
+    
     player = [[AVAudioPlayer alloc]initWithData:receivedData error:&err];
+    [player setDelegate:self];
+    nowPlaying.text = [NSString stringWithFormat:@"Now playing : %@",trackTitle];
     [player prepareToPlay];
     [player play];
+    [playPause setBackgroundImage:[UIImage imageNamed:@"pauseButton"] forState:UIControlStateNormal];
+    
+    if (shouldSaveToDisk)
+    {
+        [self saveFileToDisk:receivedData filename:trackTitle];
+    }
+}
+
+-(void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    [timer invalidate];
+    timer = nil;
+}
+
+-(void) updatePlayProgress:(NSTimer*)timer{
+    NSTimeInterval duration = [player duration];
+    NSTimeInterval current = [player currentTime];
+    [progress setProgress:current/duration];
+    
+}
+- (IBAction)onPreviousSelected:(id)sender {
+    if (currentIndex > 0){
+        [self stopPlaying];
+        [self playIndex:--currentIndex];
+    }
+    
+}
+
+-(void) stopPlaying{
+    if([player isPlaying]){
+        nowPlaying.text = @"";
+        [player stop];
+        [timer invalidate];
+        timer = nil;
+    }
+    
+}
+
+- (IBAction)onPlayPauseSelected:(id)sender {
+    if ([player isPlaying])
+    {
+        [player pause];
+        [playPause setBackgroundImage:[UIImage imageNamed:@"playButton"] forState:UIControlStateNormal];
+    }else{
+        [player play];
+        [playPause setBackgroundImage:[UIImage imageNamed:@"pauseButton"] forState:UIControlStateNormal];
+    }
+}
+
+- (IBAction)onNextSelected:(id)sender {
+    if (currentIndex < audioItemList.count - 1)
+    {
+        [self stopPlaying];
+        [self playIndex:++currentIndex];
+    }
+    
+}
+
+- (IBAction)onSaveToDiskStatusChanged:(id)sender {
+    shouldSaveToDisk = YES;
+    if (isDownloadingComplete)
+    {
+        [self saveFileToDisk:receivedData filename:trackTitle];
+    }
+}
+
+-(void) saveFileToDisk:(NSData *)data filename:(NSString *)name
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString * file = [NSString stringWithFormat:@"sermons/%@.mp3",name];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:file];
+    NSLog(@"%@",filePath);
+    [receivedData writeToFile:filePath atomically:YES];
+}
+
+-(void) viewWillDisappear:(BOOL)animated
+{
+    if (connection != nil)
+    {
+        [connection cancel];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    }
+    
+    if (timer != nil)
+    {
+        [timer invalidate];
+    }
+    [self stopPlaying];
 }
 @end

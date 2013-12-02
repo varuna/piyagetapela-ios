@@ -13,6 +13,7 @@
 #import <MediaPlayer/MPMoviePlayerController.h>
 
 @interface DeshanaListViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,AVAudioPlayerDelegate,NSURLConnectionDelegate>
+
 @property (weak, nonatomic) IBOutlet UIImageView *theroImage;
 @property (weak, nonatomic) IBOutlet UILabel *theroName;
 
@@ -20,7 +21,18 @@
 @property (retain,nonatomic) NSString * name;
 @property (retain,nonatomic) UIImage * image;
 @property (retain,nonatomic) NSArray * audioItemList;
-@property long expectedBytes;
+
+@property (weak, nonatomic) IBOutlet UILabel *nowPlaying;
+@property (weak, nonatomic) IBOutlet UIButton * previouse;
+@property (weak, nonatomic) IBOutlet UIButton * next;
+@property (weak, nonatomic) IBOutlet UIButton * playPause;
+@property (weak, nonatomic) IBOutlet UIProgressView * progress;
+- (IBAction)onPreviousSelected:(id)sender;
+- (IBAction)onPlayPauseSelected:(id)sender;
+- (IBAction)onNextSelected:(id)sender;
+- (IBAction)onSaveToDiskStatusChanged:(id)sender;
+
+@property long long expectedBytes;
 @property int currentPercentage;
 @property NSString * trackTitle;
 

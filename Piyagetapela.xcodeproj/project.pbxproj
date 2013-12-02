@@ -11,6 +11,10 @@
 		9745CCAE1847F46F00A1ABA9 /* DeshanaListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9745CCAD1847F46F00A1ABA9 /* DeshanaListViewController.m */; };
 		9745CCB2184A79B300A1ABA9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9745CCB1184A79B300A1ABA9 /* AudioToolbox.framework */; };
 		9745CCB4184A8B0B00A1ABA9 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9745CCB3184A8B0B00A1ABA9 /* MediaPlayer.framework */; };
+		9745CCBC184C6BED00A1ABA9 /* nextButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9745CCB8184C6BEC00A1ABA9 /* nextButton.png */; };
+		9745CCBD184C6BED00A1ABA9 /* pauseButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9745CCB9184C6BEC00A1ABA9 /* pauseButton.png */; };
+		9745CCBE184C6BED00A1ABA9 /* playButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9745CCBA184C6BEC00A1ABA9 /* playButton.png */; };
+		9745CCBF184C6BED00A1ABA9 /* previouseButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9745CCBB184C6BEC00A1ABA9 /* previouseButton.png */; };
 		DE0331681845E18000B2379E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE0331671845E18000B2379E /* Foundation.framework */; };
 		DE03316A1845E18000B2379E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE0331691845E18000B2379E /* CoreGraphics.framework */; };
 		DE03316C1845E18000B2379E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE03316B1845E18000B2379E /* UIKit.framework */; };
@@ -63,6 +67,10 @@
 		9745CCAD1847F46F00A1ABA9 /* DeshanaListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeshanaListViewController.m; sourceTree = "<group>"; };
 		9745CCB1184A79B300A1ABA9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		9745CCB3184A8B0B00A1ABA9 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		9745CCB8184C6BEC00A1ABA9 /* nextButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nextButton.png; path = ../../../../../Downloads/nextButton.png; sourceTree = "<group>"; };
+		9745CCB9184C6BEC00A1ABA9 /* pauseButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pauseButton.png; path = ../../../../../Downloads/pauseButton.png; sourceTree = "<group>"; };
+		9745CCBA184C6BEC00A1ABA9 /* playButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playButton.png; path = ../../../../../Downloads/playButton.png; sourceTree = "<group>"; };
+		9745CCBB184C6BEC00A1ABA9 /* previouseButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = previouseButton.png; path = ../../../../../Downloads/previouseButton.png; sourceTree = "<group>"; };
 		DE0331641845E18000B2379E /* Piyagetapela.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Piyagetapela.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE0331671845E18000B2379E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DE0331691845E18000B2379E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -228,6 +236,10 @@
 		DE0331A11846092B00B2379E /* images */ = {
 			isa = PBXGroup;
 			children = (
+				9745CCB8184C6BEC00A1ABA9 /* nextButton.png */,
+				9745CCB9184C6BEC00A1ABA9 /* pauseButton.png */,
+				9745CCBA184C6BEC00A1ABA9 /* playButton.png */,
+				9745CCBB184C6BEC00A1ABA9 /* previouseButton.png */,
 				DED9842D184745A600FE320E /* thero-pics */,
 				DE0331A5184611D200B2379E /* dharmachakra.png */,
 				DE0331A6184611D200B2379E /* neluma.png */,
@@ -344,10 +356,14 @@
 				DED98428184745A000FE320E /* laggala-kalyanawansa-thero.png in Resources */,
 				DE0331721845E18000B2379E /* InfoPlist.strings in Resources */,
 				DED9842A184745A000FE320E /* meethalawe-wineetha-thero.png in Resources */,
+				9745CCBC184C6BED00A1ABA9 /* nextButton.png in Resources */,
 				DED98424184745A000FE320E /* kadawedduwa-sri-jinawansha-thero.png in Resources */,
 				DE03317B1845E18000B2379E /* Main.storyboard in Resources */,
+				9745CCBD184C6BED00A1ABA9 /* pauseButton.png in Resources */,
 				DED98422184745A000FE320E /* bulathsinghala-sumangala-thero.png in Resources */,
+				9745CCBF184C6BED00A1ABA9 /* previouseButton.png in Resources */,
 				DED98426184745A000FE320E /* kehellpannala-sumana-thero.png in Resources */,
+				9745CCBE184C6BED00A1ABA9 /* playButton.png in Resources */,
 				DE0331A8184611D200B2379E /* dharmachakra.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
